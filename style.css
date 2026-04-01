@@ -1,0 +1,675 @@
+:root {
+  /* Colores Principales (Identidad de Marca) */
+  --color-primary: #1A432B;       /* Verde Oscuro - Navbar, botones principales, títulos */
+  --color-background: #FFFFFF;    /* Blanco Puro - Fondo principal de la página */
+  --color-text-main: #1E1E1E;     /* Negro Suave - Cuerpo de texto principal, H1/H2 */
+
+  /* Colores Secundarios (Interacciones y Fondos Alternos) */
+  --color-primary-hover: #2C6B45; /* Verde Medio - Efectos :hover en botones o enlaces */
+  --color-bg-secondary: #F0F4F1;  /* Gris Claro Verdoso - Fondos de tarjetas (cards) o secciones */
+
+  /* Colores de Soporte (Detalles de UI) */
+  --color-border: #E0E0E0;        /* Gris Medio - Bordes, líneas <hr>, inputs de formularios */
+  --color-text-muted: #666666;    /* Gris Secundario - Textos de soporte, placeholders, footer */
+  
+  /* Tipografía (Opcional, para mantener todo centralizado) */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ****************************** 
+PARTE 1 -- Encabezado y NavBar
+*********************************
+
+    En esta parte se realizará el diseño para el encabezado y navbar, mas que todo el encabezado
+
+    Parte 1.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
+    movil, enfocandonos en un diseño responsive y escalable a otras pantallas.
+
+    Parte 1.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
+    pantallas medianas como tablets o teléfono desplegables; también pantallas grandes
+
+    Parte 1.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
+    elementos que actuarán de manera distinta en pantallas grandes, puede que no se use.
+
+*/
+
+/* INICIA PARTE 1.1*/
+
+    body
+    {
+        position: relative;
+    }
+    body.activo
+    {
+        overflow-y: hidden;
+    }
+
+    .fondo__negro
+    {
+        visibility: hidden;
+        transition: all 0.5s ease;
+    }
+
+    .fondo__negro.activo
+    {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        visibility: visible;
+        z-index: 50;
+    }
+    .fondo__negro.activo2
+    {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        visibility: visible;
+        z-index: 52;
+    }
+
+    .contenedor__encabezado
+    {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        height: 10vh;
+        width: auto;
+        justify-content: center;
+        position: relative;
+        z-index: 51;
+    }
+
+    .contenedor__carrito
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100vh;
+        background-color: white;
+        padding: 15px;
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+    .contenedor__carrito.activo{
+        visibility: visible;
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1000;
+    }
+
+    .header__carrito
+    {
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+        align-items: center;
+    }
+    .boton__cerrar__carrito
+    {
+        background-color: none;
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .logo__encabezado
+    {
+        display: flex;
+        height: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+    .logo__marca
+    {
+        width: 130px;
+    }
+    .botones__logo
+    {
+        display: flex;
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+    }
+    .boton__logo
+    {
+        border: none;
+        display: flex;
+        padding: 10px;
+        color: var(--color-primary);
+        background-color: var(--color-bg-secondary);
+        border-radius: 15px;
+        transition: all 0.2s ease;
+    }
+    .boton__logo:hover
+    {
+        background-color: var(--color-primary-hover);
+        color: var(--color-background);
+    }
+
+    .contenedor__navbar
+    {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+    .contenedor__navbar.activo
+    {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .contenedor__navbar ul
+    {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .contenedor__navbar ul a
+    {
+        font-family: "Roboto", sans-serif;
+        border-top: 1.5px solid var(--color-border);
+        font-size: 1rem;
+        width: auto;
+        padding: 20px 18px;
+        text-decoration: none;
+        color: var(--color-primary);
+        background-color: var(--color-bg-secondary);
+        font-weight: bold;
+        transition: all 0.2s ease-out;
+    }
+    .contenedor__navbar ul a:hover
+    {
+        background-color: var(--color-primary-hover);
+        color: var(--color-background);
+    }
+    .boton__login
+    {
+        color: var(--color-background) !important;
+        background-color: var(--color-primary) !important;
+    }
+    .boton__login:hover
+    {
+        color: var(--color-background) !important;
+        background-color: var(--color-primary-hover) !important;
+    }
+
+
+    .botones__nav
+    {
+        padding: 18px 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        display: none;
+    }
+
+
+/* TERMINA PARTE 1.1*/
+
+/* INICIA PARTE 1.2*/
+
+    @media (min-width: 768px)
+    {
+        .contenedor__encabezado
+        {
+            flex-direction: row;
+            justify-content: space-between;
+            height: 10vh;
+            align-items: center;
+            padding: 2px 25px;
+            padding: 0 5%;
+        }
+
+        .logo__encabezado
+        {
+            justify-content: start;
+            padding: 0;
+        }
+        .logo__marca
+        {
+            width: 130px;
+        }
+        .botones__logo
+        {
+            display: none;
+        }
+        .contenedor__navbar
+        {
+            display: flex;
+            justify-content: end;
+            gap:20px;
+            position: static;
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .contenedor__navbar ul
+        {
+            flex-direction: row;
+            height: auto;
+            align-items: center;
+        }
+        
+        .contenedor__navbar ul a
+        {
+            background-color: transparent;
+            padding: 0 13px;
+            transition: all 0.3s ease;
+        }
+        .contenedor__navbar ul a:hover
+        {
+            background-color: transparent !important;
+            color: var(--color-primary-hover);
+        }
+
+        .boton__login {
+            display: none;
+        }
+        .botones__nav
+        {
+            display: flex;
+            width: auto;
+            gap: 12px;
+            height: auto;
+            align-items: center;
+        }
+        .botones__nav a
+        {
+            display: flex;
+            height: auto;
+            align-items: center;
+        }
+
+        .boton__logoXL
+        {
+            border: none;
+            display: flex;
+            height: auto;
+            align-items: center;
+            border-radius: 15px;
+        }
+        
+        .botones__nav svg
+        {
+            padding: 10px;
+            color: var(--color-primary);
+            background-color: var(--color-bg-secondary);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .botones__nav svg:hover
+        {
+            cursor: pointer;
+            color: var(--color-background) !important;
+            background-color: var(--color-primary-hover) !important;
+        }
+        .boton__loginXL p{
+            display: none;
+        }
+        .contenedor__navbar ul a
+        {
+            border: none;
+        }
+    }
+
+/* TERMINA PARTE 1.2*/
+
+/*INICIA PARTE 1.3*/
+
+    @media (min-width: 1200px)
+    {
+        .contenedor__encabezado
+        {
+            padding: 0 10%;
+        }
+        .botones__nav
+        {
+            gap:35px;
+        }
+        .boton__loginXL svg{
+            display: none;
+        }
+        .boton__loginXL{
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            text-decoration: none;
+        }
+        .boton__loginXL p
+        {
+            display: inline;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: bold;
+            background-color: var(--color-bg-secondary) !important;
+            padding: 13px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .boton__loginXL a
+        {
+            display: inline;
+            text-decoration: none;
+            
+        }
+        .boton__loginXL p:hover
+        {
+            background-color: var(--color-primary-hover) !important;
+            color: var(--color-background);
+        }
+    }
+
+/* TERMINA PARTE 1.3*/
+
+/* ****************************** 
+        PARTE 2 -- Hero
+*********************************
+
+    En esta parte se realizará el diseño para el hero o banner principal
+
+    Parte 1.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
+    movil, enfocandonos en un diseño responsive y escalable a otras pantallas.
+
+    Parte 1.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
+    pantallas medianas como tablets o teléfono desplegables; también pantallas grandes
+
+    Parte 1.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
+    elementos que actuarán de manera distinta en pantallas grandes, puede que no se use.
+
+*/
+
+/* INICIA PARTE 2.1*/
+
+    .contenedor__hero
+    {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-image: 
+        linear-gradient(rgba(26, 67, 43, 0.7), rgba(26, 67, 43, 0.7)),
+        url('img/TerraPot_Hero.png');
+        transform: rotateX('angle');
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 30px;
+    }
+    .contenido__hero
+    {
+        text-align: center;
+        color: var(--color-background);
+        width: 100%;
+        max-width: 1200px;
+    }
+    .titulo__hero
+    {
+        font-family: var(--font-heading);
+        font-size: 2.3rem;
+        margin-bottom: 30px;
+        line-height: 1.2;
+    }
+    .parrafo__hero
+    {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        line-height: 1.8;
+    }
+
+    .botones__hero 
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; 
+    }
+    .boton__hero 
+    {
+        padding: 15px 30px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-family: var(--font-body);
+}
+
+    .boton__hero--principal 
+    {
+        background-color: var(--color-background);
+        color: var(--color-primary);
+        border: none;
+    }
+
+    .boton__hero--principal:hover 
+    {
+        background-color: var(--color-primary-hover);
+        color: white;
+    }
+
+    .boton__hero--secundario 
+    {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+    }
+
+    .boton__hero--secundario:hover 
+    {
+        background-color: #FFFFFF;
+        color: var(--color-primary);
+    }
+/* TERMINA PARTE 2.1*/
+
+/* INICIA PARTE 2.2*/
+
+@media (min-width: 768px)
+{
+    .contenedor__hero
+    {
+        justify-content: start;
+        padding: 0 5%;
+    }
+    .contenido__hero
+    {
+        text-align: left;
+        max-width: 50%;
+    }
+    .titulo__hero
+    {
+        font-size: 3.5rem;
+    }
+    .botones__hero
+    {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+/* TERMINA PARTE 2.2*/
+
+@media (min-width: 1200px) {
+    .contenedor__hero
+    {
+        padding: 0 10%;
+    }
+}
+
+/* ****************************** 
+        PARTE 3 -- Razones
+*********************************
+
+    En esta parte se realizará el diseño para la sección de las razones por las cuales
+    deberían comprar en Terra Pot
+
+    Parte 1.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
+    movil, enfocandonos en un diseño responsive y escalable a otras pantallas.
+
+    Parte 1.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
+    pantallas medianas como tablets o teléfono desplegables; también pantallas grandes
+
+    Parte 1.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
+    elementos que actuarán de manera distinta en pantallas grandes, puede que no se use.
+
+*/
+
+/* INICIA PARTE 3.1*/
+
+    .contenedor__razones
+    {
+        padding: 60px 10px;
+    }
+    .texto__razones
+    {
+        text-align: center;
+    }
+    .titulo__razones
+    {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        color: var(--color-primary);
+        margin-bottom: 15px;
+    }
+    .parrafo__razones
+    {
+        font-family: var(--font-body);
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+.planta__imagen
+    {
+        grid-area: foto;
+        width: 100%;
+        max-width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        place-self: center;
+    }
+    .carta__grid1
+    {
+        grid-area: carta1;
+        font-family: var(--font-heading);
+        width: 100%;
+    }
+    .carta__grid2
+    {
+        grid-area: carta2;
+        font-family: var(--font-heading);
+        width: 100%;
+    }
+    .carta__grid3
+    {
+        grid-area: carta3;
+        font-family: var(--font-heading);
+        width: 100%;
+    }
+    .carta__grid4
+    {
+        grid-area: carta4;
+        font-family: var(--font-heading);
+        width: 100%;
+    }
+    .icono__carta
+    {
+        color: var(--color-primary-hover);
+        margin-bottom: 15px;
+    }
+    .titulo__carta
+    {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    .parrafo__Carta
+    {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .grid__razones
+    {
+        display: grid;
+        gap: 25px;
+        grid-template-areas: 
+        "carta1"
+        "carta2"
+        "foto"
+        "carta3"
+        "carta4"
+        ;
+    }
+/* TERMINA PARTE 3.1*/
+
+/* INICIA PARTE 3.2*/
+
+    @media (min-width: 768px) {
+        
+        .contenedor__razones
+        {
+            padding: 60px 5%;
+        }
+        
+        .grid__razones
+        {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+            "carta1 carta2"
+            "foto foto"
+            "carta3 carta4"
+            ;
+        }
+    }
+
+/* TERMINA PARTE 3.2*/
+
+/* INICIA PARTE 3.3*/
+
+    @media (min-width: 1200px) {
+        
+        .contenedor__razones
+        {
+            padding: 60px 10%;
+        }
+
+        .grid__razones
+        {
+            row-gap: 60px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: 
+            "carta1 foto carta2"
+            "carta3 foto carta4"
+            ;
+        }
+    }
+
+/* TERMINA PARTE 3.3*/
