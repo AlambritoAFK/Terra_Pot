@@ -673,3 +673,51 @@ PARTE 1 -- Encabezado y NavBar
     }
 
 /* TERMINA PARTE 3.3*/
+
+/* ***********************************
+        PARTE 4 -- Usos de las plantas
+**************************************
+
+    En esta parte se realizará el diseño para la sección de los usos que se le pueden dar a las
+    plantas, como uso en interiores o exteriores
+
+    Parte 4.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
+    movil, enfocandonos en un diseño responsive y escalable a otras pantallas.
+
+    Parte 4.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
+    pantallas medianas como tablets o teléfono desplegables; también pantallas grandes
+
+    Parte 4.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
+    elementos que actuarán de manera distinta en pantallas grandes, puede que no se use.
+
+*/
+
+/* INICIA PARTE 4.1*/
+
+    .banner__usos
+    {
+        width: 100%;
+        background-image: url(/img/division_terrapot.png);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .cont__usos
+    {
+        flex: 1;
+        min-width: 300px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        color: #FFFFFF; 
+        text-align: center;
+    }
+
+/* TERMINA PARTE 4.1*/
