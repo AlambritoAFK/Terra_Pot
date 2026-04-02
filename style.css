@@ -395,13 +395,13 @@ PARTE 1 -- Encabezado y NavBar
 
     En esta parte se realizará el diseño para el hero o banner principal
 
-    Parte 1.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
+    Parte 2.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
     movil, enfocandonos en un diseño responsive y escalable a otras pantallas.
 
-    Parte 1.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
+    Parte 2.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
     pantallas medianas como tablets o teléfono desplegables; también pantallas grandes
 
-    Parte 1.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
+    Parte 2.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
     elementos que actuarán de manera distinta en pantallas grandes, puede que no se use.
 
 */
@@ -697,7 +697,7 @@ PARTE 1 -- Encabezado y NavBar
     .banner__usos
     {
         width: 100%;
-        background-image: url(/img/division_terrapot.png);
+        background-image:linear-gradient(rgba(26, 67, 43, 0.7), rgba(26, 67, 43, 0.7)), url(/img/division_terrapot.png);
         background-size: cover;
         background-position: center;
         display: flex;
@@ -718,7 +718,7 @@ PARTE 1 -- Encabezado y NavBar
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         color: #FFFFFF; 
         border-radius: 10px;
-        padding: 10px 20px;
+        padding: 25px 20px;
         font-family: var(--font-heading);
         display: flex;
         flex-direction: column;
@@ -726,17 +726,97 @@ PARTE 1 -- Encabezado y NavBar
     }
     .titulo__carta--usos
     {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     .parrafo__Carta--usos
     {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-bottom: 15px;
+        text-align: justify;
     }
     .imagen__carta
     {
         width: 100%;
-        max-width: 300px;
+        max-width: 400px;
     }
 
 /* TERMINA PARTE 4.1*/
+
+/* INICIA PARTE 4.2*/
+
+    @media (min-width: 768px)
+    {
+        .titulo__carta--usos
+        {
+            font-size: 1.8rem;
+        }
+        .parrafo__Carta--usos
+        {
+            font-size: 1.1rem;
+        }
+    }
+
+/* TERMINA PARTE 4.2*/
+
+/* INICIA PARTE 4.3*/
+
+    @media (min-width: 1200px)
+    {
+        .titulo__carta--usos
+        {
+            grid-area: titulo;
+            margin-bottom: 0;
+            margin-bottom: 10px;
+        }
+        .parrafo__Carta--usos
+        {
+            grid-area: parrafo;
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+        .imagen__carta
+        {
+            grid-area: imagen;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            place-self: center;
+        }
+        .banner__usos
+        {
+            padding: 30px 8%;
+            flex-direction: row;
+            align-items: stretch;
+        }
+        .cont__usos
+        {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "titulo imagen"
+                "parrafo imagen"
+            ;
+            column-gap: 30px;
+        }
+    }
+
+/* TERMINA PARTE 4.3*/
+
+/* ***********************************
+        PARTE 5 -- Plantas Destacadas
+**************************************
+
+    En esta parte se realizará el diseño para la sección de los usos que se le pueden dar a las
+    plantas, como uso en interiores o exteriores
+
+    Parte 5.1 "Mobile First": Este apartado llevará todo el css para empezar con un diseño
+    movil, enfocandonos en un diseño responsive y escalable a otras pantallas.
+
+    Parte 5.2 "Tablets. pantallas medianas y grandes": Este apartado se usará para mostrar diseño en
+    pantallas medianas como tablets o teléfono desplegables; también pantallas grandes
+
+    Parte 5.3 "Pantallas grandes o variaciones": Este apartado se usará para el diseño de ciertos
+    elementos que actuarán de manera distinta en pantallas grandes, puede que no se use.
+
+*/
