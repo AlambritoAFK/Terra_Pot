@@ -826,7 +826,7 @@ PARTE 1 -- Encabezado y NavBar
     .banner__usos
     {
         width: 100%;
-        background-image:linear-gradient(rgba(26, 67, 43, 0.7), rgba(26, 67, 43, 0.7)), url(/img/division_terrapot.png);
+        background-image:linear-gradient(rgba(26, 67, 43, 0.7), rgba(26, 67, 43, 0.7)), url(img/division_terrapot.png);
         background-size: cover;
         background-position: center;
         display: flex;
@@ -1186,7 +1186,7 @@ PARTE 1 -- Encabezado y NavBar
     .banner__newsletter {
         width: 100%;
         min-height: 450px;
-        background-image:linear-gradient(rgba(26, 67, 43, 0.7), rgba(26, 67, 43, 0.7)), url(/img/division_terrapot.png);
+        background-image:linear-gradient(rgba(26, 67, 43, 0.7), rgba(26, 67, 43, 0.7)), url(img/division_terrapot.png);
         background-size: cover;
         background-position: center;
         display: flex;
