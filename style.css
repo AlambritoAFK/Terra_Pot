@@ -142,9 +142,10 @@ PARTE 1 -- Encabezado y NavBar
         right: 0;
         width: 100%;
         max-width: 400px;
-        height: 100vh;
+        height: 100%;
+        height: 100dvh;
         background-color: white;
-        padding: 25px 20px;
+        padding: 25px 20px 20px 20px;
         transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
@@ -197,6 +198,7 @@ PARTE 1 -- Encabezado y NavBar
         flex-direction: column;
         gap: 20px;
         padding-right: 5px;
+        min-height: 0;
     }
 
     .carrito__item {
@@ -279,6 +281,7 @@ PARTE 1 -- Encabezado y NavBar
         border-top: 1px solid var(--color-border);
         padding-top: 20px;
         margin-top: 20px;
+        padding-bottom: env(safe-area-inset-bottom, 10px);
     }
 
     .carrito__total {
@@ -391,7 +394,7 @@ PARTE 1 -- Encabezado y NavBar
         }
 
         .logo__marca {
-            width: 130px;
+            width: 100px;
         }
 
         .botones__logo {
@@ -401,7 +404,7 @@ PARTE 1 -- Encabezado y NavBar
         .contenedor__navbar {
             display: flex;
             justify-content: end;
-            gap: 20px;
+            gap: 10px;
             position: static;
             transform: translateY(0);
             opacity: 1;
@@ -416,7 +419,8 @@ PARTE 1 -- Encabezado y NavBar
         
         .contenedor__navbar ul a {
             background-color: transparent;
-            padding: 0 13px;
+            padding: 0 8px;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             border: none;
         }
@@ -433,7 +437,7 @@ PARTE 1 -- Encabezado y NavBar
         .botones__nav {
             display: flex;
             width: auto;
-            gap: 12px;
+            gap: 8px;
             height: auto;
             align-items: center;
         }
@@ -455,7 +459,9 @@ PARTE 1 -- Encabezado y NavBar
         }
         
         .botones__nav svg {
-            padding: 10px;
+            width: 32px;
+            height: 32px;
+            padding: 8px;
             color: var(--color-primary);
             background-color: var(--color-bg-secondary);
             border-radius: 12px;
@@ -471,6 +477,13 @@ PARTE 1 -- Encabezado y NavBar
         .boton__loginXL p {
             display: none;
         }
+        .carrito__contador {
+            top: -4px;
+            right: -4px;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+        }
     }
 
 /* TERMINA PARTE 1.2*/
@@ -480,11 +493,18 @@ PARTE 1 -- Encabezado y NavBar
     @media (min-width: 1200px) {
         
         .contenedor__encabezado {
-            padding: 0 10%;
+            padding: 0 8%;
         }
-
+        .logo__marca {
+            width: 130px; 
+        }
+        .contenedor__navbar ul a 
+        {
+            padding: 0 15px;
+            font-size: 1rem;
+        }
         .botones__nav {
-            gap: 35px;
+            gap: 20px;
         }
 
         .boton__loginXL svg {
@@ -498,7 +518,18 @@ PARTE 1 -- Encabezado y NavBar
             align-items: center;
             text-decoration: none;
         }
-
+        .botones__nav svg {
+            width: 45px; 
+            height: 45px;
+            padding: 10px;
+        }
+        .carrito__contador {
+            top: -6px;
+            right: -6px;
+            width: 20px;
+            height: 20px;
+            font-size: 0.75rem;
+        }
         .boton__loginXL p {
             display: inline;
             text-decoration: none;
@@ -628,7 +659,7 @@ PARTE 1 -- Encabezado y NavBar
     .contenedor__hero
     {
         justify-content: start;
-        padding: 0 5%;
+        padding: 15px 5%;
     }
     .contenido__hero
     {
